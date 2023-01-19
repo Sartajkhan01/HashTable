@@ -64,8 +64,25 @@ namespace HashTable1
             }
             else myMapNode.value = value;
         }
+        public void Remove(K key)
+        {
+
+            int index = GetBucketIndex(key);
+            LinkedList<K, V> myLinkedList = BucketList[index];
+
+            if (myLinkedList != null)
+            {
+
+                MyMapNode<K, V> myMapNode = myLinkedList.Search(key);
+                if (myMapNode != null)
+                {
+                    myLinkedList.DeleteNode(myMapNode);
+                }
+            }
 
 
+        }
     }
+
 
 }
